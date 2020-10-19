@@ -1,17 +1,17 @@
-From 9255c7c4f217118a550d9492fa7aa6e33a921841 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Byteflux <byte@byteflux.net>
 Date: Mon, 29 Feb 2016 17:50:31 -0600
 Subject: [PATCH] Entity Origin API
 
 
 diff --git a/src/main/java/org/bukkit/entity/Entity.java b/src/main/java/org/bukkit/entity/Entity.java
-index 69bdb460..c0b7426d 100644
+index b46653655d1da3ffe54d91b038ec360cd77f0c44..573d959a0a534b72338566eea0a9eca4124dba92 100644
 --- a/src/main/java/org/bukkit/entity/Entity.java
 +++ b/src/main/java/org/bukkit/entity/Entity.java
-@@ -486,4 +486,15 @@ public interface Entity extends Metadatable, CommandSender, Nameable {
- 
+@@ -595,4 +595,16 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
+     @Override
      Spigot spigot();
-     // Spigot End
+     // Spigot end
 +
 +    // Paper start
 +    /**
@@ -21,14 +21,15 @@ index 69bdb460..c0b7426d 100644
 +     *
 +     * @return Location where entity originates or null if not yet added
 +     */
++    @Nullable
 +    Location getOrigin();
 +    // Paper end
  }
 diff --git a/src/main/java/org/bukkit/entity/FallingBlock.java b/src/main/java/org/bukkit/entity/FallingBlock.java
-index bc56fa22..360e1493 100644
+index 64f9d3fd870d65afd2ee9a85625b149163eee144..14cb0d770561151570ab4399ca5facff43076819 100644
 --- a/src/main/java/org/bukkit/entity/FallingBlock.java
 +++ b/src/main/java/org/bukkit/entity/FallingBlock.java
-@@ -59,4 +59,13 @@ public interface FallingBlock extends Entity {
+@@ -54,4 +54,15 @@ public interface FallingBlock extends Entity {
       * @param hurtEntities whether entities will be damaged by this block.
       */
      void setHurtEntities(boolean hurtEntities);
@@ -40,15 +41,17 @@ index bc56fa22..360e1493 100644
 +     * @deprecated replaced by {@link Entity#getOrigin()}
 +     */
 +    @Deprecated
-+    public org.bukkit.Location getSourceLoc();
++    default org.bukkit.Location getSourceLoc() {
++        return this.getOrigin();
++    }
  }
 diff --git a/src/main/java/org/bukkit/entity/TNTPrimed.java b/src/main/java/org/bukkit/entity/TNTPrimed.java
-index 3ce322d9..69df487b 100644
+index 5a87893248d9cbeb7c431590e726fcb0f69f930d..3022b4a270e66c4654193c96faf35bee817e648a 100644
 --- a/src/main/java/org/bukkit/entity/TNTPrimed.java
 +++ b/src/main/java/org/bukkit/entity/TNTPrimed.java
-@@ -35,4 +35,13 @@ public interface TNTPrimed extends Explosive {
-      * @return the source of this primed TNT
+@@ -39,4 +39,15 @@ public interface TNTPrimed extends Explosive {
       */
+     @Nullable
      public Entity getSource();
 +
 +    /**
@@ -58,8 +61,7 @@ index 3ce322d9..69df487b 100644
 +     * @deprecated replaced by {@link Entity#getOrigin()}
 +     */
 +    @Deprecated
-+    public org.bukkit.Location getSourceLoc();
++    default org.bukkit.Location getSourceLoc() {
++        return this.getOrigin();
++    }
  }
--- 
-2.12.0.windows.1
-

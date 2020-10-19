@@ -3,6 +3,9 @@
 .project
 .settings/
 
+# VSCode stuff
+.vscode/
+
 # netbeans
 nbproject/
 nbactions.xml
@@ -23,7 +26,9 @@ bin/
 dist/
 manifest.mf
 
+/work/Temp/
 work/1.*
+work/Minecraft
 work/BuildData
 work/Bukkit
 work/CraftBukkit
@@ -33,25 +38,27 @@ work/Spigot-Server
 work/Spigot-API
 work/*.jar
 work/test-server
+work/ForgeFlower
 
 # Mac filesystem dust
 .DS_Store/
+.DS_Store
 
 # intellij
 *.iml
 *.ipr
 *.iws
 .idea/
+out/
 
 # Linux temp files
 *~
 
 # other stuff
+run/
 
 Paper-Server
 Paper-API
-PaperSpigot-Server
-PaperSpigot-API
 Paperclip.jar
 paperclip.jar
 paperclip-*.jar

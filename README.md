@@ -1,25 +1,62 @@
-Paper [![CI Status](http://ci.destroystokyo.com/buildStatus/icon?job=PaperSpigot)](http://ci.destroystokyo.com/job/PaperSpigot/)
+Paper [![Build Status](https://papermc.io/ci/job/Paper-1.16/badge/icon)](https://papermc.io/ci/job/Paper-1.16/)
 ===========
 
 High performance Spigot fork that aims to fix gameplay and mechanics inconsistencies.
 
-[IRC Support and Project Discussion](http://irc.spi.gt/iris/?channels=paper)
 
+**Support and Project Discussion:**
+ - [IRC](https://irc.spi.gt/iris/?channels=paper) or [Discord](https://discord.gg/papermc)
 
-Documentation
-------
-Access the Paper docs here: [paper.readthedocs.io](https://paper.readthedocs.io/)  
-Access the Paper API javadocs here: [paperdocs.emc.gs](https://paperdocs.emc.gs)
 
 How To (Server Admins)
 ------
 Paperclip is a jar file that you can download and run just like a normal jar file.
 
-Download a copy of paperclip.jar from [our build server, here](https://ci.destroystokyo.com/job/PaperSpigot/).
+Download Paper from our [downloads page](https://papermc.io/downloads).
 
 Run the Paperclip jar directly from your server. Just like old times
 
-Paper requires [**Java 8**](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or above.
+  * Documentation on using Paper: [paper.readthedocs.io](https://paper.readthedocs.io/)
+  * For a sneak peak on upcoming features, [see here](https://github.com/PaperMC/Paper/projects)
+
+How To (Plugin Developers)
+------
+ * See our API patches [here](Spigot-API-Patches)
+ * See upcoming, pending, and recently added API [here](https://github.com/PaperMC/Paper/projects/6)
+ * Paper API javadocs here: [papermc.io/javadocs](https://papermc.io/javadocs/)
+ * Maven Repo (for paper-api):
+```xml
+<repository>
+    <id>papermc</id>
+    <url>https://papermc.io/repo/repository/maven-public/</url>
+</repository>
+```
+ * Artifact Information:
+```xml
+<dependency>
+    <groupId>com.destroystokyo.paper</groupId>
+    <artifactId>paper-api</artifactId>
+    <version>1.16.3-R0.1-SNAPSHOT</version>
+    <scope>provided</scope>
+</dependency>
+ ```
+
+**Or alternatively, with Gradle:**
+
+ * Repository:
+```groovy
+repositories {
+    maven {
+        url 'https://papermc.io/repo/repository/maven-public/'
+    }
+}
+```
+ * Artifact:
+```groovy
+dependencies {
+    compileOnly 'com.destroystokyo.paper:paper-api:1.16.3-R0.1-SNAPSHOT'
+}
+```
 
 How To (Compiling Jar From Source)
 ------
@@ -36,4 +73,4 @@ Special Thanks To:
 
 ![YourKit-Logo](https://www.yourkit.com/images/yklogo.png)
 
-[YourKit](http://www.yourkit.com/), makers of the outstanding java profiler, support open source projects of all kinds with their full featured [Java](https://www.yourkit.com/java/profiler/index.jsp) and [.NET](https://www.yourkit.com/.net/profiler/index.jsp) application profilers. We thank them for granting Paper an OSS license so that we can make our software the best it can be.
+[YourKit](https://www.yourkit.com/), makers of the outstanding java profiler, support open source projects of all kinds with their full featured [Java](https://www.yourkit.com/java/profiler/index.jsp) and [.NET](https://www.yourkit.com/.net/profiler/index.jsp) application profilers. We thank them for granting Paper an OSS license so that we can make our software the best it can be.
